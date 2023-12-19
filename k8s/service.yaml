@@ -1,0 +1,12 @@
+apiVersion: v1                  # API version for Service
+kind: Service                   # Type of the Kubernetes object
+metadata:
+  name: hello-world-nodejs-service # Name of the Service
+spec:
+  type: NodePort                # Type of Service
+  selector:
+    app: hello-world-nodejs     # Targets Pods with this label
+  ports:
+    - protocol: TCP
+      port: 80                  # The port the service is exposed on
+      targetPort: 3000          # The target port on the Pod

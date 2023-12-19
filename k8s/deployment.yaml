@@ -1,0 +1,19 @@
+apiVersion: apps/v1             # API version for the Deployment
+kind: Deployment                # Type of the Kubernetes object
+metadata:
+  name: hello-world-nodejs      # Name of the Deployment
+spec:
+  replicas: 1                   # Number of desired Pods
+  selector:
+    matchLabels:
+      app: hello-world-nodejs   # Selects the Pod with this label
+  template:                     # Template for the Pod
+    metadata:
+      labels:
+        app: hello-world-nodejs # Label applied to the Pod
+    spec:
+      containers:
+      - name: hello-world-nodejs
+        image: hello-world-nodejs  # Docker image to use for the Pod
+        ports:
+        - containerPort: 3000      # Port the container exposes
